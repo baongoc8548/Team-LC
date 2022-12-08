@@ -9,6 +9,8 @@ import {
   Route,
 } from "react-router-dom";
 import Home from "./pages/home";
+import Card from './components/card';
+import Product from './pages/product';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +18,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="product" element={<Product />} />
         {/* <Route path="about" element={<About />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
