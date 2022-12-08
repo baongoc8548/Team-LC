@@ -1,12 +1,72 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import "./styles.scss";
 import { Link } from "react-router-dom";
 import iconDT from "../../assets/imgs/dt1.jpg";
 import desktop from "../../assets/imgs/laptophouse4.png";
+import { useNavigate } from "react-router-dom";
 
+
+import axios from "axios";
 import { Form, Button, Spinner, InputGroup, Dropdown } from "react-bootstrap";
 
 export default function Navbar() {
+  const [search, setSearch] = useState("");
+  const [list, setList] = useState([]);
+  const [brand, setBrand] = useState("");
+  const [price, setPrice] = useState();
+  const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+
+  const navigate=useNavigate();
+
+  const handleChange = (val) => {
+    setSearch(val);
+  };
+  const onSubmitSearch = () => {
+    handleCallAPI(search);
+  };
+  // const handleSelectChange = (e) => {
+  //   // const val = e.target.value;
+  //   setBrand(e);
+  //   console.log("hello a",e)
+
+  //   handleCallAPI(search, e, price);
+  // };
+  // const sortPrice = (e) => {
+  //   const val = e.target.value;
+
+  //   setPrice(val);
+
+  //   handleCallAPI(search, brand, val);
+  // };
+    
+  const handleCallAPI = (productName) => {
+    setLoading(true);
+    axios
+      .get("https://lapcenter-v1.onrender.com/api/product", {
+        params: {
+          productName: productName,
+          
+          pageSize: 6,
+          pageNumber: page,
+        },
+      })
+      .then(function (response) {
+        // handle success
+        console.log("SUCCESS: ", response.data);
+        setLoading(false);
+        setList(response.data.products);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log("ERROR: ", error);
+        setLoading(false);
+        alert("Something went wrong!!!");
+      })
+      .then(function () {
+        // always executed
+      });
+  };
   return (
     <div className="navbar-Container">
       <div className="top d-flex">
@@ -18,14 +78,21 @@ export default function Navbar() {
 
           <InputGroup className="mb-3">
             <Form.Control
+            value={search}
+            onChange={(e) => {
+              handleChange(e.target.value);
+            }}
               placeholder="Tìm Kiếm..."
               //   aria-label="Recipient's username"
               aria-describedby="basic-addon2"
             />
             <Button
               variant="outline-secondary"
-              id="button-addon2"
+              // id="button-addon2"
               className="btn-search"
+              // onClick={onSubmitSearch}
+              onClick={onSubmitSearch=>{navigate(`/product`,{state:{}})}}
+
             >
               Search
             </Button>
@@ -56,7 +123,7 @@ export default function Navbar() {
             <Link to="/about">GIỚI THIỆU</Link>
           </li>
           <li>
-            <Link to="/about">SẢN PHẨM</Link>
+            <Link to="/product">SẢN PHẨM</Link>
           </li>
 
           <li>
