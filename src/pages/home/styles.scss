@@ -1,0 +1,49 @@
+.homeContainer {
+  width: 100%;
+  // background: rgb(23, 136, 57);
+  
+  margin-top: 220px;
+  padding-top: 70px;
+  .main {
+    
+    
+    // display: flex;
+    .all{
+      padding-left: 10%;
+      .card:hover {
+        transform: scale(0.94);
+        cursor: pointer;
+        transition: 500ms;
+      }
+    }
+   
+  }
+  .middle{
+     height: 500px;
+    background: #306d78;
+    display: flex;
+    padding-left:200px;
+    padding-top: 50px;
+    margin-top: 50px;
+    .left{
+      width: 17%;
+      height: 120px;
+      // background: olivedrab;
+      border-bottom: 5px solid rgb(182, 182, 29) ;
+      color: aliceblue;
+    }
+    .right{
+      background: #306d78;
+      margin-left: 50px;
+      .img{
+        margin-left: 20px;
+        border-radius: 10%;
+      }
+      .img:hover{
+        transform: scale(1.09);
+        cursor: pointer;
+        transition: 700ms;
+      }
+    }
+  }
+}
