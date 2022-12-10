@@ -1,12 +1,15 @@
 .footerContainer{
+    border-top: 1px solid rgb(189, 182, 182);
     width: 100%;
     padding: 50px 0;
     
-    background: rgb(203, 203, 203);
+    background: rgb(255, 244, 244);
     .content{
         width: 80%;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
+        font-size: 20px;
     }
+    
 }
