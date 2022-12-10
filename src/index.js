@@ -12,11 +12,7 @@ import {
 import Home from "./pages/home";
 import Card from './components/card';
 import Product from './pages/product';
-<<<<<<< HEAD
 import Login from './pages/login';
-=======
-import ProductDetail from './pages/productDetail';
->>>>>>> 657f1947bed8d4765077337f42c3f79567699f7a
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -25,11 +21,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="product" element={<Product />} />
-<<<<<<< HEAD
         <Route path="login" element={<Login />} />
-=======
-        <Route path="product/:productId" element={<ProductDetail />} />
->>>>>>> 657f1947bed8d4765077337f42c3f79567699f7a
 
         {/* <Route path="about" element={<About />} />
         <Route path="login" element={<Login />} />
