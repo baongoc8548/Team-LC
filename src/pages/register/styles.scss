@@ -1,0 +1,110 @@
+.main{
+    margin-top: 220px;
+    width: 100%;
+    // background: olive;
+    padding-top: 50px;
+    .registerContainer {
+      width: 70%;
+      height: 650px;
+      margin-left: 300px;
+      border-radius: 10px;
+      -webkit-box-shadow: 12px 11px 13px -3px rgba(0, 0, 0, 0.74);
+      box-shadow: 12px 11px 13px -3px rgba(0, 0, 0, 0.74);
+        .left {
+          width: 60%;
+          height: 100%;
+          .user {
+            margin-left: 10%;
+            margin-bottom: 30px;
+            font-size: 20px;
+            .txtuser {
+              width: 70%;
+              height: 43px;
+              border: none;
+              border-bottom: solid 1px gray;
+              border-radius: 4px;
+            }
+    
+            .txtuser:hover {
+              background: rgb(183, 214, 224);
+            }
+          }
+        }
+        .right {
+          width: 40%;
+          height: 100%;
+        }
+      } 
+    .custom-btn {
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
+      //    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+      //    7px 7px 20px 0px rgba(0,0,0,.1),
+      //    4px 4px 5px 0px rgba(0,0,0,.1);
+      outline: none;
+      font-size: 20px;
+    }
+    .btn-3 {
+      background: #306d78;
+      background: linear-gradient(10deg, #306d78 30%, #306d78 70%);
+      height: 5 0px;
+      line-height: 42px;
+      padding: 20;
+      border: none;
+      width: 200px;
+      margin-left: 300px;
+      margin-top: 3 0px;
+    }
+    .btn-3 span {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .btn-3:before,
+    .btn-3:after {
+      position: absolute;
+      content: "";
+      right: 0;
+      top: 0;
+      background: #306d78;
+      transition: all 0.3s ease;
+    }
+    .btn-3:before {
+      height: 0%;
+      width: 2px;
+    }
+    .btn-3:after {
+      width: 0%;
+      height: 2px;
+    }
+    .btn-3:hover {
+      background: transparent;
+      color: black;
+      box-shadow: none;
+      transform: scale(1.1);
+      transition: 200ms;
+    }
+    .btn-3:hover:before {
+      height: 100%;
+    }
+    .btn-3:hover:after {
+      width: 100%;
+    }
+    .btn-3 span:hover {
+      color: #306d78;
+    }
+    .btn-3 span:before,
+    .btn-3 span:after {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: 0;
+      background: rgb(22, 190, 78);
+      transition: all 0.3s ease;
+    }
+}

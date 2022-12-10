@@ -116,7 +116,7 @@ export default function Navbar() {
         <div className="change d-flex">
           <ul className="d-flex">
             <li>
-              <Link to="/">ĐĂNG KÝ</Link>{" "}
+              <Link to="/register">ĐĂNG KÝ</Link>{" "}
             </li>
             |
             <li>
