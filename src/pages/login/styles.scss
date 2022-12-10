@@ -1,0 +1,82 @@
+.container{
+    margin: 0 ;
+    padding: 0;
+    width: 100%;
+    margin-top: 120px;
+    padding-top: 100px;
+    .content{
+        display: flex;
+        border-radius: 8px;
+        margin-top: 50px;
+      margin-left: 50%;
+        width: 80%;
+        height: 600px;
+        -webkit-box-shadow: 7px 7px 16px -1px rgba(0,0,0,0.45); 
+box-shadow: 7px 7px 16px -1px rgba(0,0,0,0.45);
+        .left{
+            width: 35%;
+      .video{
+        
+        width: 100%;
+        height: 300px;
+      }
+      
+    
+      }
+        
+        .right{
+            width: 65%;
+            margin-top: 40px;
+            .h2text{
+                margin: 0 0 20px 27%;
+                font-size: 45px;
+                font-weight: 600;
+            }
+           .txtnamepass{
+            font-size: 20px;
+            margin-left: 15px;
+           }
+          
+            .btnlogin{
+                // margin-top: 20px;
+                margin-left: 35%;
+                background-color: bisque;
+                width: 150px;
+                height: 55px;
+                border-radius: 5px;
+                font-weight: 600;
+                color:grey;
+            }
+            .btnlogin:hover{
+                background-color: rgb(225, 197, 161);
+            }
+        }
+        .newaccount{
+            margin-left: 31%;
+            margin-top: 25px;
+            background-color:lightblue;
+            color: black;
+        }
+        .newaccount:hover{
+        background-color:rgb(130, 184, 202);
+        }
+        
+        
+        
+    }
+    .userimg{
+        width: 32px;
+        height: 32px;
+        margin-top: 5px;
+    }
+    .namepass{
+        height: 40px;
+        // margin-left: 15px;
+        width: 80%;
+        margin-bottom: 40px;
+        border:0;
+        border-bottom: solid 1px;
+        font-size: 20px;
+       
+    }
+}
