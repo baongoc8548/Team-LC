@@ -7,6 +7,7 @@ import axios from "axios";
 
 import { Form ,Spinner} from "react-bootstrap";
 import ReactPaginate from "react-paginate";
+import Footer from "../../components/footer";
 export default function Product() {
   const [list, setList] = useState([]);
   const [search, setSearch] = useState("");
@@ -181,6 +182,7 @@ export default function Product() {
             </Form>
           </div>
         </div>
+        {loading === false ? (
         <div className="right">
           {brand===""?(
 
@@ -195,11 +197,11 @@ export default function Product() {
           ) : (
             <div className="text-center">
               {/* <img src={require('../../assets/imgs/1.jpg')} style={{width:70,height:70}} alt="" /> */}
-              <Spinner animation="border" variant="danger" />
+              {/* <Spinner animation="border" variant="danger" /> */}
 
-              {/* <h1 style={{ textAlign: "center"}}>
+               <h1 style={{ textAlign: "center"}}>
                 Không tìm thấy sản phẩm nào!!
-              </h1> */}
+              </h1> 
             </div>
           )}
         </div>
@@ -220,7 +222,13 @@ export default function Product() {
         />
       </div>
         </div>
+         ) : (
+          <div className="text-center" style={{marginTop:200, marginLeft:600}}>
+            <Spinner animation="border" variant="danger" />
+          </div>
+         )}
       </div>
+      <Footer/>
     </>
   );
 }

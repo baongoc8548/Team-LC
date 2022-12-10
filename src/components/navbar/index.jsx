@@ -19,26 +19,39 @@ export default function Navbar() {
 
   const navigate=useNavigate();
 
-  const handleChange = (val) => {
-    setSearch(val);
+  const handleChange = (e) => {
+    setSearch(e);
+    
   };
-  const onSubmitSearch = () => {
-    handleCallAPI(search);
+  const onSubmitSearch = (product) => {
+    // handleCallAPI(search);
+    setLoading(true);
+    axios
+      .get("https://lapcenter-v1.onrender.com/api/product", {
+        params: {
+          productName: product.name,
+          pageSize: 6,
+          pageNumber: page,
+        },
+      })
+      .then(function (response) {
+        // handle success
+        console.log("SUCCESS: ", response.data);
+        setLoading(false);
+        setList(response.data.products);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log("ERROR: ", error);
+        setLoading(false);
+        alert("Something went wrong!!!");
+      })
+      .then(function () {
+        // always executed
+      });
+    navigate(`/product`,{state:{name:product?.name}})
   };
-  // const handleSelectChange = (e) => {
-  //   // const val = e.target.value;
-  //   setBrand(e);
-  //   console.log("hello a",e)
-
-  //   handleCallAPI(search, e, price);
-  // };
-  // const sortPrice = (e) => {
-  //   const val = e.target.value;
-
-  //   setPrice(val);
-
-  //   handleCallAPI(search, brand, val);
-  // };
+ 
     
   const handleCallAPI = (productName) => {
     setLoading(true);
@@ -46,7 +59,6 @@ export default function Navbar() {
       .get("https://lapcenter-v1.onrender.com/api/product", {
         params: {
           productName: productName,
-          
           pageSize: 6,
           pageNumber: page,
         },
@@ -91,7 +103,7 @@ export default function Navbar() {
               // id="button-addon2"
               className="btn-search"
               // onClick={onSubmitSearch}
-              onClick={onSubmitSearch=>{navigate(`/product`,{state:{}})}}
+              onClick={onSubmitSearch}
 
             >
               Search

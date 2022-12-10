@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
+import "bootstrap-icons/font/bootstrap-icons.css";
 import {
   BrowserRouter,
   Routes,
@@ -11,6 +12,7 @@ import {
 import Home from "./pages/home";
 import Card from './components/card';
 import Product from './pages/product';
+import ProductDetail from './pages/productDetail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +21,8 @@ root.render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="product" element={<Product />} />
+        <Route path="product/:productId" element={<ProductDetail />} />
+
         {/* <Route path="about" element={<About />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
