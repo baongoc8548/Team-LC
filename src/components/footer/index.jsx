@@ -24,9 +24,9 @@ export default function Footer() {
         <div className="contact">
           <h5>Kênh xã hội</h5>
           <ul>
-            <li>Facebook</li>
-            <li>Gmail</li>
-            <li>Twitter</li>
+            <li><i class="bi bi-facebook text-primary"></i>    Facebook</li>
+            <li><i class="bi bi-envelope-at-fill text-danger"></i>    Gmail</li>
+            <li><i class="bi bi-twitter text-primary"></i>   Twitter</li>
           </ul>
         </div>
       </div>
