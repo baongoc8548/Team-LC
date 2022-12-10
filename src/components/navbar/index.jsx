@@ -108,7 +108,7 @@ export default function Navbar() {
             </li>
             |
             <li>
-              <Link to="/about">ĐĂNG NHẬP</Link>
+              <Link to="/login">ĐĂNG NHẬP</Link>
             </li>
           </ul>
         </div>
