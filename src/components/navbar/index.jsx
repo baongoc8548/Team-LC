@@ -16,6 +16,12 @@ export default function Navbar() {
   const [price, setPrice] = useState();
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const customerName = localStorage.getItem("customerName");
+  const accessToken = localStorage.getItem("accessToken");
+  const handleLogout = () => {
+    localStorage.clear("accessToken");
+  };
+
 
   const navigate=useNavigate();
 
@@ -118,10 +124,12 @@ export default function Navbar() {
             <li>
               <Link to="/register">ĐĂNG KÝ</Link>{" "}
             </li>
-            |
-            <li>
-              <Link to="/login">ĐĂNG NHẬP</Link>
-            </li>
+            
+            {
+            accessToken ?
+            <li onClick={handleLogout}> <a href="">ĐĂNG XUẤT</a></li>:
+            <li><Link to="/login">Đăng Nhập</Link></li>
+          }
           </ul>
         </div>
       </div>
@@ -144,6 +152,14 @@ export default function Navbar() {
           <li>
             <Link to="/login">LIÊN HỆ</Link>
           </li>
+        <div>{ 
+          customerName &&
+          <>
+          <span className="" style={{marginLeft:240, color:"306d78"}}>Chào mừng, </span><span
+          className="h5">{customerName}
+          </span>
+          </>}
+          </div>
         </ul>
       </div>
     </div>
