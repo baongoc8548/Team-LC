@@ -16,6 +16,7 @@ import Product from './pages/product';
 import Login from './pages/login';
 
 import ProductDetail from './pages/productDetail';
+import Buy from './pages/buy';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -25,10 +26,9 @@ root.render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="product" element={<Product />} />
-
         <Route path="login" element={<Login />} />
-
         <Route path="product/:productId" element={<ProductDetail />} />
+        <Route path="buy/:productId" element={<Buy />} />
 
 
         {/* <Route path="about" element={<About />} />
