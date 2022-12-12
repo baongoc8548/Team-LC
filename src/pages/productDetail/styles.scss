@@ -1,76 +1,71 @@
-
 .productDetailContainer {
-    width: 100%;
-    // margin: 0 auto;
-    // background-color: aquamarine;
-    // padding-top: 60px;
-    margin-top: 220px;
+  width: 100%;
+  // margin: 0 auto;
+  // background-color: aquamarine;
+  // padding-top: 60px;
+  margin-top: 220px;
   padding-top: 20px;
   padding-left: 200px;
   padding-right: 300px;
-   .text-center{
+  .text-center {
     margin-top: 20px;
+  }
 
-   }
-  
-    .tittle {
-      margin-top: 30px;
-    }
-    .info {
-      .productImg {
-        .image{
-          // max-width: 500px;
-          max-width: 500px;
-          max-height: auto;
-        }
-        .image:hover{
-          transform: scale(1.05);
-          cursor: pointer;
-          transition: 500ms;
-        }
-        .imgSmall {
-          width: 60px;
-          height: 45px;
-          margin: 0 10px;
-          border: 1px solid black;
-          
-        }
-        .imgSmall:hover{
-          transform: scale(1.5);
-    cursor: pointer;
-    transition: 500ms;
-
-        }
+  .tittle {
+    margin-top: 30px;
+  }
+  .info {
+    .productImg {
+      .image {
+        // max-width: 500px;
+        max-width: 500px;
+        max-height: auto;
       }
-      .price1 {
-        color: black;
-        font-size: 20px;
+      .image:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+        transition: 500ms;
       }
-  
-      .amount {
-        color: red;
-        font-size: 25px;
-        font-weight: 700;
+      .imgSmall {
+        width: 60px;
+        height: 45px;
+        margin: 0 10px;
+        border: 1px solid black;
       }
-      .gift {
-        background-color: rgb(245, 156, 186);
-        color: black;
-        font-size: 18px;
-        font-weight: 700;
-        padding: 13px 5px;
-        border: 1px solid rgb(137, 134, 134);
-      }
-      .giftInfo {
-        border: 2px dotted black;
-        font-size: 18px;
-        // font-weight: 700;
-        padding: 13px 5px;
+      .imgSmall:hover {
+        transform: scale(1.5);
+        cursor: pointer;
+        transition: 500ms;
       }
     }
-    .contact {
-      ul li {
-        color: black;
-      }
+    .price1 {
+      color: black;
+      font-size: 20px;
+    }
+
+    .amount {
+      color: red;
+      font-size: 25px;
+      font-weight: 700;
+    }
+    .gift {
+      background-color: rgb(245, 156, 186);
+      color: black;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 13px 5px;
+      border: 1px solid rgb(137, 134, 134);
+    }
+    .giftInfo {
+      border: 2px dotted black;
+      font-size: 18px;
+      // font-weight: 700;
+      padding: 13px 5px;
     }
   }
-  
+  .contact {
+    ul li {
+      color: black;
+    }
+  }
+}

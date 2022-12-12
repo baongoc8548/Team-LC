@@ -13,7 +13,14 @@ import Home from "./pages/home";
 import Card from './components/card';
 import Product from './pages/product';
 import Login from './pages/login';
+<<<<<<< HEAD
 import Register from './pages/register';
+=======
+
+import ProductDetail from './pages/productDetail';
+import Buy from './pages/buy';
+
+>>>>>>> test05
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,7 +30,12 @@ root.render(
         <Route path="/" element={<Home />} />
         <Route path="product" element={<Product />} />
         <Route path="login" element={<Login />} />
+<<<<<<< HEAD
         <Route path="register" element={<Register />} />
+=======
+        <Route path="product/:productId" element={<ProductDetail />} />
+        <Route path="buy/:productId" element={<Buy />} />
+>>>>>>> test05
 
 
         {/* <Route path="about" element={<About />} />
