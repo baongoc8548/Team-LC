@@ -2,11 +2,15 @@ import React from "react";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
 import { Card, CardGroup } from "react-bootstrap";
+import MyCartIcon from "../../components/MyCartAndHistory";
 import "./styles.scss";
 export default function Home() {
+  const customerName = localStorage.getItem("customerName");
+
   return (
     <>
       <Navbar />
+      {customerName && <MyCartIcon />}
       <div className="homeContainer">
         <div className="main">
           <div className="all d-flex ">
