@@ -15,22 +15,59 @@ export default function Register() {
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
   const [cfpassword, setcfPassword] = useState("");
-
+  const [eremail, setErEmail] = useState();
+const[erphone,setErPhone]=useState();
+const[erpass,setErPass]=useState();
+const[ername,setErName]=useState();
+// const[check, setCheck]=useState(true);
+  function isValidEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
+  function isValidPhone(phone) {
+    return /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(phone);
+  }
+function isValidPassWord(password){
+  return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)
+}
+function isValidName(name){
+  return /^[a-zA-Z\-]+$/.test(name)
+}
   const handleChange = (val, field) => {
     if (field === "name") {
       setName(val);
+      if(!isValidName (val)){
+        setErName("Chỉ chứa kí tự từ a-z hoặc A-Z, không chứa dấu cách hoặc kí tự đặc biệt")
+      }else{
+        setErName("")
+      }
     }
     if (field === "password") {
       setPassword(val);
+      if(!isValidPassWord(val)){
+        setErPass("Tối thiểu 8 ký tự, ít nhất 1 chữ cái và 1 số")
+      }else{
+        setErPass("")
+      }
     }
     if (field === "cfpassword") {
       setcfPassword(val);
     }
     if (field === "email") {
       setEmail(val);
+      if (!isValidEmail(val)){
+        setErEmail("Hãy nhập đúng định dạng. Example@gmail.com");
+      }else{
+        setErEmail("")
+      }
     }
     if (field === "phone") {
       setPhone(val);
+      
+      if (!isValidPhone(val)){
+        setErPhone("Không hợp lệ");
+      }else{
+        setErPhone("")
+      }
     }
   };
  
@@ -40,6 +77,8 @@ export default function Register() {
   //   navigate("/login");
   // };
   const hanldeRegister = () => {
+    if(!isValidName (name) || !isValidPassWord(password)|| !isValidEmail(email)|| !isValidPhone(phone))
+        return 
     if (
       name === "" ||
       password === "" ||
@@ -109,6 +148,8 @@ export default function Register() {
                 placeholder="Tên Người Dùng"
                 className="txtuser"
               />
+              <p style={{ color: "red" }}>{ername}</p>
+
             </div>
 
             <div className="user">
@@ -123,6 +164,7 @@ export default function Register() {
                 placeholder="Email"
                 className="txtuser"
               />
+              <p style={{ color: "red" }}>{eremail}</p>
             </div>
 
             <div className="user">
@@ -137,6 +179,8 @@ export default function Register() {
                 placeholder="Số Điện Thoại"
                 className="txtuser"
               />
+              <p style={{ color: "red" }}>{erphone}</p>
+
             </div>
 
             <div className="user">
@@ -151,6 +195,8 @@ export default function Register() {
                 placeholder="Mật Khẩu"
                 className="txtuser ps"
               />
+              <p style={{ color: "red" }}>{erpass}</p>
+
             </div>
 
             <div className="user">
