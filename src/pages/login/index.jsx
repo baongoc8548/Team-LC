@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../../components/footer";
 
 import "./styles.scss";
-const fakeAccount = { username: "admin", password: "admin" };
 
 export default function Login() {
   let navigate = useNavigate();
@@ -22,38 +21,40 @@ export default function Login() {
       console.log("PASSWORD:", val);
     }
   };
-  const handleOnLogin = () => {
-    if (
-      username === fakeAccount.username &&
-      password === fakeAccount.password
-    ) {
-      console.log("DANG NHAP THANH CONG");
-      navigate("/");
-    } else {
-      console.log("DANG NHAP KHONG THANH CONG");
-      alert("Tên hoặc mật khẩu không chính xác.vui lòng nhập lại!?");
-    }
-  };
+  // const handleOnLogin = () => {
+  //   if (
+  //     username === fakeAccount.username &&
+  //     password === fakeAccount.password
+  //   ) {
+  //     console.log("DANG NHAP THANH CONG");
+  //     navigate("/");
+  //   } else {
+  //     console.log("DANG NHAP KHONG THANH CONG");
+  //     alert("Email hoặc mật khẩu không chính xác.vui lòng nhập lại!?");
+  //   }
+  // };
   const hanldeLogin = () => {
-    axios
-      .post("https://lapcenter-v1.onrender.com/api/login", {
-        username: username,
-        password: password,
-      })
-      .then(function (response) {
-        console.log("SUCCESS:", response.data);
-        localStorage.setItem("customerName", response.data.userName);
-        localStorage.setItem("accessToken", response.data.token);
-        localStorage.setItem("userId", response.data.userId);
-        localStorage.setItem("isAdmin", response.data.isAdmin);
-        navigate("/");
-      })
-      .catch(function (error) {
-        console.log("ERROR", error);
-        alert(
-          "Tên tài khoản hoặc mật khẩu không chính xác. vui lòng thử lại!!!"
-        );
-      });
+    if (username === "" || password === "") {
+      alert("Hãy nhập đủ Tên tài khoản và mật khẩu!!");
+    } else {
+      axios
+        .post("https://lapcenter-v1.onrender.com/api/login", {
+          username: username,
+          password: password,
+        })
+        .then(function (response) {
+          console.log("SUCCESS:", response.data);
+          localStorage.setItem("customerName", response.data.userName);
+          localStorage.setItem("accessToken", response.data.token);
+          localStorage.setItem("userId", response.data.userId);
+          localStorage.setItem("isAdmin", response.data.isAdmin);
+          navigate("/");
+        })
+        .catch(function (error) {
+          console.log("ERROR", error);
+          alert("Email hoặc mật khẩu không chính xác. vui lòng thử lại!!!");
+        });
+    }
   };
   return (
     <>

@@ -7,7 +7,7 @@ import axios from "axios";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Modal from "react-bootstrap/Modal";
-
+import MyCartIcon from "../../components/MyCartAndHistory";
 import SameCard from "../../components/sameCard";
 import Footer from "../../components/footer";
 
@@ -129,6 +129,7 @@ export default function ProductDetail() {
   return (
     <>
       <Navbar />
+      {customerName && <MyCartIcon />}
       <div className="productDetailContainer">
         {loading === false ? (
           <div>

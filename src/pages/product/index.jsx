@@ -4,7 +4,7 @@ import Navbar from "../../components/navbar";
 import Card from "../../components/card";
 import axios from "axios";
 // import { data } from "../../data";
-
+import MyCartIcon from "../../components/MyCartAndHistory";
 import { Form, Spinner } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
 import Footer from "../../components/footer";
@@ -122,6 +122,7 @@ export default function Product() {
   return (
     <>
       <Navbar />
+      {customerName && <MyCartIcon />}
       <div className="productContainer">
         <div className="left">
           <div className="danhmuc">

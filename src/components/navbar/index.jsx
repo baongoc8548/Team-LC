@@ -1,19 +1,16 @@
-import React,{useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.scss";
 import { Link } from "react-router-dom";
 import iconDT from "../../assets/imgs/dt1.jpg";
 import desktop from "../../assets/imgs/laptophouse4.png";
 import { useNavigate } from "react-router-dom";
 
-
 import axios from "axios";
-import { Form, Button, Spinner, InputGroup, Dropdown } from "react-bootstrap";
+import { Form, Button, Spinner, InputGroup } from "react-bootstrap";
 
 export default function Navbar() {
   const [search, setSearch] = useState("");
   const [list, setList] = useState([]);
-  const [brand, setBrand] = useState("");
-  const [price, setPrice] = useState();
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const customerName = localStorage.getItem("customerName");
@@ -22,20 +19,19 @@ export default function Navbar() {
     localStorage.clear("accessToken");
   };
 
-
-  const navigate=useNavigate();
-
+  
   const handleChange = (e) => {
-    setSearch(e);
-    
+    setSearch(e.target.value);
   };
+
+  const navigate = useNavigate();
   const onSubmitSearch = (product) => {
     // handleCallAPI(search);
     setLoading(true);
     axios
-      .get("https://lapcenter-v1.onrender.com/api/product", {
+      .get(`https://lapcenter-v1.onrender.com/api/product?productName=${search}`, {
         params: {
-          productName: product.name,
+          productName: product?.name,
           pageSize: 6,
           pageNumber: page,
         },
@@ -55,36 +51,11 @@ export default function Navbar() {
       .then(function () {
         // always executed
       });
-    navigate(`/product`,{state:{name:product?.name}})
+   
   };
- 
-    
-  const handleCallAPI = (productName) => {
-    setLoading(true);
-    axios
-      .get("https://lapcenter-v1.onrender.com/api/product", {
-        params: {
-          productName: productName,
-          pageSize: 6,
-          pageNumber: page,
-        },
-      })
-      .then(function (response) {
-        // handle success
-        console.log("SUCCESS: ", response.data);
-        setLoading(false);
-        setList(response.data.products);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log("ERROR: ", error);
-        setLoading(false);
-        alert("Something went wrong!!!");
-      })
-      .then(function () {
-        // always executed
-      });
-  };
+
+  
+  
   return (
     <div className="navbar-Container">
       <div className="top d-flex">
@@ -96,10 +67,10 @@ export default function Navbar() {
 
           <InputGroup className="mb-3">
             <Form.Control
-            value={search}
-            onChange={(e) => {
-              handleChange(e.target.value);
-            }}
+              value={search}
+              onChange={(e) => {
+                handleChange(e.target.value);
+              }}
               placeholder="Tìm Kiếm..."
               //   aria-label="Recipient's username"
               aria-describedby="basic-addon2"
@@ -110,7 +81,6 @@ export default function Navbar() {
               className="btn-search"
               // onClick={onSubmitSearch}
               onClick={onSubmitSearch}
-
             >
               Search
             </Button>
@@ -121,15 +91,39 @@ export default function Navbar() {
         </div>
         <div className="change d-flex">
           <ul className="d-flex">
-            <li>
-              <Link to="/register">ĐĂNG KÝ</Link>{" "}
-            </li>
-            
-            {
-            accessToken ?
-            <li onClick={handleLogout}> <a href="">ĐĂNG XUẤT</a></li>:
-            <li><Link to="/login">Đăng Nhập</Link></li>
-          }
+            {accessToken ? (
+              <div
+                className="d-flex"
+                style={{ marginTop: -7, paddingRight: 20 }}
+              >
+                <i
+                  class="bi bi-person-circle"
+                  style={{
+                    fontSize: 30,
+                    color: "rgb(180, 176, 23)",
+                    paddingRight: 10,
+                  }}
+                ></i>
+                <span style={{ color: "white", fontSize: 25 }}>
+                  {customerName}
+                </span>
+                {""}
+              </div>
+            ) : (
+              <li>
+                <Link to="/register">ĐĂNG KÝ</Link>{" "}
+              </li>
+            )}
+            {accessToken ? (
+              <li onClick={handleLogout}>
+                {" "}
+                <a href="">ĐĂNG XUẤT</a>
+              </li>
+            ) : (
+              <li>
+                <Link to="/login">ĐĂNG NHẬP</Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
@@ -152,14 +146,14 @@ export default function Navbar() {
           <li>
             <Link to="/login">LIÊN HỆ</Link>
           </li>
-        <div>{ 
+          {/* <div>{ 
           customerName &&
           <>
           <span className="" style={{marginLeft:240, color:"306d78"}}>Chào mừng, </span><span
           className="h5">{customerName}
           </span>
           </>}
-          </div>
+          </div> */}
         </ul>
       </div>
     </div>
