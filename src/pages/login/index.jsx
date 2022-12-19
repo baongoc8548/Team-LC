@@ -52,7 +52,7 @@ export default function Login() {
         })
         .catch(function (error) {
           console.log("ERROR", error);
-          alert("Email hoặc mật khẩu không chính xác. vui lòng thử lại!!!");
+          alert("Tài khoản hoặc mật khẩu không chính xác. vui lòng thử lại!!!");
         });
     }
   };
