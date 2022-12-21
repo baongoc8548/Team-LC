@@ -1,61 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./styles.scss";
 import { Link } from "react-router-dom";
 import iconDT from "../../assets/imgs/dt1.jpg";
 import desktop from "../../assets/imgs/laptophouse4.png";
-import { useNavigate } from "react-router-dom";
-
-import axios from "axios";
-import { Form, Button, Spinner, InputGroup } from "react-bootstrap";
 
 export default function Navbar() {
-  const [search, setSearch] = useState("");
-  const [list, setList] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1);
   const customerName = localStorage.getItem("customerName");
   const accessToken = localStorage.getItem("accessToken");
+
   const handleLogout = () => {
     localStorage.clear("accessToken");
   };
 
-  
-  const handleChange = (e) => {
-    setSearch(e.target.value);
-  };
-
-  const navigate = useNavigate();
-  const onSubmitSearch = (product) => {
-    // handleCallAPI(search);
-    setLoading(true);
-    axios
-      .get(`https://lapcenter-v1.onrender.com/api/product?productName=${search}`, {
-        params: {
-          productName: product?.name,
-          pageSize: 6,
-          pageNumber: page,
-        },
-      })
-      .then(function (response) {
-        // handle success
-        console.log("SUCCESS: ", response.data);
-        setLoading(false);
-        setList(response.data.products);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log("ERROR: ", error);
-        setLoading(false);
-        alert("Something went wrong!!!");
-      })
-      .then(function () {
-        // always executed
-      });
-   
-  };
-
-  
-  
   return (
     <div className="navbar-Container">
       <div className="top d-flex">
@@ -64,27 +20,6 @@ export default function Navbar() {
             <img src={iconDT} alt="" width={50} height={40} className="dt" />
             <h5>1800.0095</h5>
           </div>
-
-          <InputGroup className="mb-3">
-            <Form.Control
-              value={search}
-              onChange={(e) => {
-                handleChange(e.target.value);
-              }}
-              placeholder="Tìm Kiếm..."
-              //   aria-label="Recipient's username"
-              aria-describedby="basic-addon2"
-            />
-            <Button
-              variant="outline-secondary"
-              // id="button-addon2"
-              className="btn-search"
-              // onClick={onSubmitSearch}
-              onClick={onSubmitSearch}
-            >
-              Search
-            </Button>
-          </InputGroup>
         </div>
         <div className="logo">
           <img src={desktop} alt="" width={300} height={200} className="hh" />

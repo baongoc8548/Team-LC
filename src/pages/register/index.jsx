@@ -77,8 +77,6 @@ function isValidName(name){
   //   navigate("/login");
   // };
   const hanldeRegister = () => {
-    if(!isValidName (name) || !isValidPassWord(password)|| !isValidEmail(email)|| !isValidPhone(phone))
-        return 
     if (
       name === "" ||
       password === "" ||
@@ -86,7 +84,17 @@ function isValidName(name){
       (email === "") | (phone === "")
     ) {
       alert("Yêu cầu nhập đủ thông tin!!");
-    } else {
+    }
+    if(!isValidName (name) || !isValidPassWord(password)|| !isValidEmail(email)|| !isValidPhone(phone))
+        return 
+    // if (
+    //   name === "" ||
+    //   password === "" ||
+    //   cfpassword === "" ||
+    //   (email === "") | (phone === "")
+    // ) {
+    //   alert("Yêu cầu nhập đủ thông tin!!");
+    // } else {
       if (cfpassword === password) {
         const url = "https://lapcenter-v1.onrender.com/api/register";
 
@@ -112,7 +120,7 @@ function isValidName(name){
         alert("Mật khẩu không trùng nhau!!!");
         setcfPassword("");
       }
-    }
+    
   };
   // let checkInfo = true;
   // !name || !phone || !email || !password || !cfpassword
