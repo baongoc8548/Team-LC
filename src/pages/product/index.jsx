@@ -5,7 +5,7 @@ import Card from "../../components/card";
 import axios from "axios";
 // import { data } from "../../data";
 import MyCartIcon from "../../components/MyCartAndHistory";
-import { Form, Spinner } from "react-bootstrap";
+import { Form, Spinner, Button,InputGroup } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
 import Footer from "../../components/footer";
 export default function Product() {
@@ -47,6 +47,7 @@ export default function Product() {
   };
   const handleChange = (val) => {
     setSearch(val);
+    console.log("",val)
   };
   const onSubmitSearch = () => {
     handleCallAPI(search, brand, price);
@@ -190,7 +191,30 @@ export default function Product() {
         </div>
         {loading === false ? (
           <div className="right">
+            <div className="d-flex">
+
             {brand === "" ? <h1>Tất cả Sản phẩm</h1> : <h1>{brand}</h1>}
+            <InputGroup className="mb-3" style={{width:400, marginLeft:400}}>
+            <Form.Control
+              value={search}
+              onChange={(e) => {
+                handleChange(e.target.value);
+              }}
+              placeholder="Tìm Kiếm..."
+              //   aria-label="Recipient's username"
+              aria-describedby="basic-addon2"
+            />
+            <Button
+              variant="outline-secondary"
+              // id="button-addon2"
+              className="btn-search"
+              // onClick={onSubmitSearch}
+              onClick={onSubmitSearch}
+            >
+              Search
+            </Button>
+          </InputGroup>
+            </div>
             <div className="body">
               <div className="d-flex flex-wrap list-products justify-content-around">
                 {loading === false && list.length > 0 ? (
