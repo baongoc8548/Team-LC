@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import Home from "./pages/home";
 import Card from './components/card';
+import Register from './pages/register';
 import Product from './pages/product';
 import Login from './pages/login';
 import HomeAdmin from './pages/admin/homeAdmin';
@@ -24,6 +25,8 @@ root.render(
         <Route path="product" element={<Product />} />
         <Route path="login" element={<Login />} />
         <Route path="admin" element={<HomeAdmin />} />
+        <Route path="register" element={<Register />} />
+
         
             
 
