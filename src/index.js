@@ -13,8 +13,9 @@ import Home from "./pages/home";
 import Card from './components/card';
 import Product from './pages/product';
 import Login from './pages/login';
-import Admin from './pages/admin';
+import HomeAdmin from './pages/admin/homeAdmin';
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const isAdmin= localStorage.getItem("isAdmin")
 root.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -22,21 +23,11 @@ root.render(
         <Route path="/" element={<Home />} />
         <Route path="product" element={<Product />} />
         <Route path="login" element={<Login />} />
-        <Route path="admin" element={<Admin />} />
+        <Route path="admin" element={<HomeAdmin />} />
+        
+            
 
-        {/* <Route path="about" element={<About />} />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="/product/:productId" element={<ProductDetail />} />
-        <Route path="buy/:productId" element={<Buy />} />
-        <Route path="/myCarts" element={<MyCarts />} />
-        <Route path="/myHistory" element={<MyHistory />} />
-        <Route path="/*" element={<PageNotFound />} />
-
-        {
-          isAdmin==="true" &&
-        <Route path="/orders" element={<Orders />} />
-        } */}
+       
 
 
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import './styles.scss'
+// import NumberFormat from "react-number-format"
 import { Button } from 'react-bootstrap'
 import { Icon } from 'semantic-ui-react'
 import { useNavigate } from "react-router-dom";

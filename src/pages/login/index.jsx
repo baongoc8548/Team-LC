@@ -21,18 +21,8 @@ export default function Login() {
       console.log("PASSWORD:", val);
     }
   };
-  // const handleOnLogin = () => {
-  //   if (
-  //     username === fakeAccount.username &&
-  //     password === fakeAccount.password
-  //   ) {
-  //     console.log("DANG NHAP THANH CONG");
-  //     navigate("/");
-  //   } else {
-  //     console.log("DANG NHAP KHONG THANH CONG");
-  //     alert("Email hoặc mật khẩu không chính xác.vui lòng nhập lại!?");
-  //   }
-  // };
+
+  
   const hanldeLogin = () => {
     if (username === "" || password === "") {
       alert("Hãy nhập đủ Tên tài khoản và mật khẩu!!");
@@ -44,14 +34,18 @@ export default function Login() {
         })
         .then(function (response) {
           console.log("SUCCESS:", response.data);
-          localStorage.setItem("customerName", response.data.userName);
           localStorage.setItem("accessToken", response.data.token);
           localStorage.setItem("userId", response.data.userId);
-          localStorage.setItem("isAdmin", response.data.isAdmin);
-          
-          navigate("/");
+          if (response.data.isAdmin === true){
+            localStorage.setItem("isAdmin", response.data.isAdmin)
+            navigate("../admin")
+          }else{
+            localStorage.setItem("customerName", response.data.userName)
+            navigate("../");
+          }
         })
         .catch(function (error) {
+          
           console.log("ERROR", error);
           alert("Tài khoản hoặc mật khẩu không chính xác. vui lòng thử lại!!!");
         });
