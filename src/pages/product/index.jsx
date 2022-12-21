@@ -4,8 +4,8 @@ import Navbar from "../../components/navbar";
 import Card from "../../components/card";
 import axios from "axios";
 // import { data } from "../../data";
-
-import { Form ,Spinner} from "react-bootstrap";
+import MyCartIcon from "../../components/MyCartAndHistory";
+import { Form, Spinner } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
 import Footer from "../../components/footer";
 export default function Product() {
@@ -54,7 +54,7 @@ export default function Product() {
   const handleSelectChange = (e) => {
     // const val = e.target.value;
     setBrand(e);
-    console.log("hello a",e)
+    console.log("hello a", e);
 
     handleCallAPI(search, e, price);
   };
@@ -122,26 +122,32 @@ export default function Product() {
   return (
     <>
       <Navbar />
+      {customerName && <MyCartIcon />}
       <div className="productContainer">
         <div className="left">
           <div className="danhmuc">
             <h3 style={{ fontWeight: "bolder" }}>DANH MỤC SẢN PHẨM</h3>
             <ul value={brand}>
-              <li 
-                onClick={()=>handleSelectChange("Asus")} value="Asus">ASUS</li>
-              <li 
-                onClick={()=>handleSelectChange("Dell")}value="Dell">DELL</li>
-              <li 
-                onClick={()=>handleSelectChange("Acer")}value="Acer">ACER</li>
-              <li 
-                onClick={()=>handleSelectChange("Lenovo")} value="Lenovo">LENOVO</li>
-              <li 
-                onClick={()=>handleSelectChange("")} value="" >Tất cả</li>
+              <li onClick={() => handleSelectChange("Asus")} value="Asus">
+                ASUS
+              </li>
+              <li onClick={() => handleSelectChange("Dell")} value="Dell">
+                DELL
+              </li>
+              <li onClick={() => handleSelectChange("Acer")} value="Acer">
+                ACER
+              </li>
+              <li onClick={() => handleSelectChange("Lenovo")} value="Lenovo">
+                LENOVO
+              </li>
+              <li onClick={() => handleSelectChange("")} value="">
+                Tất cả
+              </li>
             </ul>
           </div>
           <div className="gia">
             <h3 style={{ fontWeight: "bold" }}>LỌC THEO GIÁ</h3>
-           
+
             <Form>
               {["radio"].map((type) => (
                 <div key={`inline-${type}`} value={price} className="mb-3">
@@ -183,52 +189,50 @@ export default function Product() {
           </div>
         </div>
         {loading === false ? (
-        <div className="right">
-          {brand===""?(
+          <div className="right">
+            {brand === "" ? <h1>Tất cả Sản phẩm</h1> : <h1>{brand}</h1>}
+            <div className="body">
+              <div className="d-flex flex-wrap list-products justify-content-around">
+                {loading === false && list.length > 0 ? (
+                  list.map((item) => <Card product={item} key={item.id} />)
+                ) : (
+                  <div className="text-center">
+                    {/* <img src={require('../../assets/imgs/1.jpg')} style={{width:70,height:70}} alt="" /> */}
+                    {/* <Spinner animation="border" variant="danger" /> */}
 
-            <h1>Tất cả Sản phẩm</h1>
-            ):(
-            <h1>{brand}</h1>
-          )}
-          <div className="body">
-          <div className="d-flex flex-wrap list-products justify-content-around">
-          {loading === false && list.length > 0 ? (
-            list.map((item) => <Card product={item} key={item.id} />)
-          ) : (
-            <div className="text-center">
-              {/* <img src={require('../../assets/imgs/1.jpg')} style={{width:70,height:70}} alt="" /> */}
-              {/* <Spinner animation="border" variant="danger" /> */}
-
-               <h1 style={{ textAlign: "center"}}>
-                Không tìm thấy sản phẩm nào!!
-              </h1> 
+                    <h1 style={{ textAlign: "center" }}>
+                      Không tìm thấy sản phẩm nào!!
+                    </h1>
+                  </div>
+                )}
+              </div>
             </div>
-          )}
-        </div>
+            <div className="pagination">
+              <ReactPaginate
+                previousLabel={"<"}
+                nextLabel={">"}
+                breakLabel={"..."}
+                breakClassName={"break-me"}
+                pageCount={totalPage}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={(e) => handleChangePage(e.selected + 1)}
+                containerClassName={"pagination"}
+                subContainerClassName={"pages pagination"}
+                activeClassName={"active"}
+              />
+            </div>
           </div>
-          <div className="pagination">
-        <ReactPaginate
-          previousLabel={"<"}
-          nextLabel={">"}
-          breakLabel={"..."}
-          breakClassName={"break-me"}
-          pageCount={totalPage}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          onPageChange={(e) => handleChangePage(e.selected + 1)}
-          containerClassName={"pagination"}
-          subContainerClassName={"pages pagination"}
-          activeClassName={"active"}
-        />
-      </div>
-        </div>
-         ) : (
-          <div className="text-center" style={{marginTop:200, marginLeft:600}}>
+        ) : (
+          <div
+            className="text-center"
+            style={{ marginTop: 200, marginLeft: 600 }}
+          >
             <Spinner animation="border" variant="danger" />
           </div>
-         )}
+        )}
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

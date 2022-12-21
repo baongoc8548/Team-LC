@@ -14,7 +14,6 @@ import Card from './components/card';
 import Product from './pages/product';
 import Login from './pages/login';
 import Admin from './pages/admin';
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

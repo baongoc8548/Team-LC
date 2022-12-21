@@ -1,14 +1,12 @@
 .homeContainer {
   width: 100%;
   // background: rgb(23, 136, 57);
-  
+
   margin-top: 220px;
-  padding-top: 70px;
+  // padding-top: 10px;
   .main {
-    
-    
     // display: flex;
-    .all{
+    .all {
       padding-left: 10%;
       .card:hover {
         transform: scale(0.94);
@@ -16,30 +14,29 @@
         transition: 500ms;
       }
     }
-   
   }
-  .middle{
-     height: 500px;
+  .middle {
+    height: 500px;
     background: #306d78;
     display: flex;
-    padding-left:200px;
+    padding-left: 200px;
     padding-top: 50px;
     margin-top: 50px;
-    .left{
+    .left {
       width: 17%;
       height: 120px;
       // background: olivedrab;
-      border-bottom: 5px solid rgb(182, 182, 29) ;
+      border-bottom: 5px solid rgb(182, 182, 29);
       color: aliceblue;
     }
-    .right{
+    .right {
       background: #306d78;
       margin-left: 50px;
-      .img{
+      .img {
         margin-left: 20px;
         border-radius: 10%;
       }
-      .img:hover{
+      .img:hover {
         transform: scale(1.09);
         cursor: pointer;
         transition: 700ms;
