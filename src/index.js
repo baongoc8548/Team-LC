@@ -13,12 +13,7 @@ import Home from "./pages/home";
 import Card from './components/card';
 import Product from './pages/product';
 import Login from './pages/login';
-import ProductDetail from './pages/productDetail';
-import Buy from './pages/buy';
-import Register from './pages/register';
-
-
-
+import Admin from './pages/admin';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -27,9 +22,7 @@ root.render(
         <Route path="/" element={<Home />} />
         <Route path="product" element={<Product />} />
         <Route path="login" element={<Login />} />
-        <Route path="product/:productId" element={<ProductDetail />} />
-        <Route path="buy/:productId" element={<Buy />} />
-        <Route path="register" element={<Register />} />
+        <Route path="admin" element={<Admin />} />
 
         {/* <Route path="about" element={<About />} />
         <Route path="login" element={<Login />} />
