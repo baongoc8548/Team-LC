@@ -427,8 +427,8 @@ export default function Buy() {
           </Modal.Header>
           <Modal.Body>
             <div className="d-flex">
-              <div className="mx-5">
-                <p>{message}</p>
+              <div className="">
+                <p><i class="bi bi-clipboard-check" style={{color: 'red', fontSize: 30, paddingRight: 10 }}></i>{message}</p>
               </div>
             </div>
           </Modal.Body>

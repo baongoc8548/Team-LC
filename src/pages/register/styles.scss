@@ -13,6 +13,7 @@
     -webkit-box-shadow: 8px 6px 14px 6px rgba(0, 0, 0, 0.63);
     box-shadow: 8px 6px 14px 6px rgba(0, 0, 0, 0.63);
     .left {
+      padding-right: 50px;
       width: 60%;
       height: 100%;
       .user {
@@ -37,6 +38,7 @@ border-color: #306d78;
     }
     .right {
       width: 40%;
+      margin-left: -50px;
       height: 100%;
     }
   }

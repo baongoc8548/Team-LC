@@ -156,7 +156,7 @@ function isValidName(name){
                 placeholder="Tên Người Dùng"
                 className="txtuser"
               />
-              <p style={{ color: "red" }}>{ername}</p>
+              <p style={{ color: "red", width:500 }}>{ername}</p>
 
             </div>
 
@@ -235,8 +235,8 @@ function isValidName(name){
               src={require("../../assets/imgs/register.jpg")}
               alt=""
               style={{
-                width: 500,
-                height: 300,
+                width: 600,
+                height: 400,
                 marginTop: 110,
                 marginLeft: -100,
               }}

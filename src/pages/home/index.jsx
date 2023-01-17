@@ -19,7 +19,7 @@ export default function Home() {
                 <Card.Img
                   src={require("../../assets/imgs/gaming1.jpg")}
                   alt="Card image"
-                  style={{ width: 650, height: 500, background: "black" }}
+                  style={{ width: 650, height: 500 }}
                 />
                 <Card.ImgOverlay>
                   <Card.Title style={{ fontSize: 30 }}>
@@ -33,7 +33,7 @@ export default function Home() {
                 <Card.Img
                   src={require("../../assets/imgs/gaming6.jpg")}
                   alt="Card image"
-                  style={{ width: 480, height: 500, background: "yellow" }}
+                  style={{ width: 480, height: 500 }}
                 />
                 <Card.ImgOverlay>
                   <Card.Title
@@ -55,7 +55,7 @@ export default function Home() {
                   <Card.Img
                     src={require("../../assets/imgs/gaming2.jpg")}
                     alt="Card image"
-                    style={{ width: 400, height: 250, background: "red" }}
+                    style={{ width: 400, height: 250}}
                   />
                   <Card.ImgOverlay>
                     <Card.Title>Chơi game</Card.Title>
@@ -67,7 +67,7 @@ export default function Home() {
                   <Card.Img
                     src={require("../../assets/imgs/Hinh-anh-may-tinh.jpg")}
                     alt="Card image"
-                    style={{ width: 400, height: 250, background: "orange" }}
+                    style={{ width: 400, height: 250 }}
                   />
                   <Card.ImgOverlay>
                     <Card.Title
